@@ -1,4 +1,7 @@
 # Vaadin Experimental Projects (Monica6)
+
+Application from main branch is on [Azure](https://polite-bay-067491603.azurestaticapps.net/) 
+
 Main Branch is initialized with *Vite* as `npm init vite`, *tsconfig.json* modified for *Lit* compatibility (no ESNext target).
 *ESLint* added as dev dependency, *Lit 2.0* installed. *Servor* and *fix* scripts are configured in *package.json*.
 - Then initialized the folder for git with Visual Studio Code command `Git: Initialize Repository` 
