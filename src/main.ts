@@ -1,17 +1,17 @@
-import "./style.css"
-import {html,render,LitElement, TemplateResult} from "lit"
-import {customElement} from "lit/decorators.js"
+import { Router } from "@vaadin/router"
+import { routes } from "./routes"
+import { appStore } from "./stores/app-store"
 
-const app = document.querySelector<HTMLDivElement>("#app")!
-render(html`<my-app></my-app>`,app)
+export const router = new Router(document.querySelector("#app"))
 
-@customElement("my-app")
-class App extends LitElement {
-  override render():TemplateResult {
-    return html`
-      <h1>Hello Lit!</h1>
-      <a href="https://lit.dev/" target="_blank">Documentation</a>
-    `   
+router.setRoutes(routes)
+
+window.addEventListener("vaadin-router-location-changed", (e) => {
+  appStore.setLocation((e as CustomEvent).detail.location)
+  const title = appStore.currentViewTitle
+  if (title) {
+    document.title = title + " | " + appStore.applicationName
+  } else {
+    document.title = appStore.applicationName
   }
-}
-declare global { interface HTMLElementTagNameMap { "my-app": App}}
+})
