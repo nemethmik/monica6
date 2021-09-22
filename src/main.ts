@@ -8,8 +8,11 @@ import "@vaadin/vaadin-icons/vaadin-iconset"
 import "@vaadin/vaadin-tabs/vaadin-tab"
 import "@vaadin/vaadin-tabs/vaadin-tabs"
 //import { applyTheme } from 'Frontend/generated/theme';
+import "./my-mobileapp"
+
 const app = document.querySelector<HTMLDivElement>("#app")!
-render(html`<my-app></my-app>`,app)
+//render(html`<my-app></my-app>`,app)
+render(html`<my-mobileapp></my-mobileapp>`,app)
 
 @customElement("my-app")
 export class App extends LitElement {
